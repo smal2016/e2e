@@ -1,5 +1,5 @@
 import { urls, options } from '../support/data'
-import { Page, Browser } from 'puppeteer'
+import {Page, Browser, Response} from 'puppeteer'
 import { Base } from './Base'
 
 class BasePage extends Base {
@@ -8,7 +8,7 @@ class BasePage extends Base {
         super()
         this.page = page
     }
-    async open(browser: Browser, pageUrl: string){
+    async open(browser: Browser, pageUrl: string): Promise<Response | null>{
         this.page = await browser.newPage()
         const url = `${urls.baseUrl}/${pageUrl}`
         return this.page.goto(url, {timeout: options.timeouts.normal})
