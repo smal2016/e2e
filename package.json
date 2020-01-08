@@ -1,0 +1,23 @@
+{
+  "name": "talenya",
+  "version": "1.0.0",
+  "description": "automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "author": "smal",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "puppeteer": "^2.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.4",
+    "@types/cucumber": "^6.0.0",
+    "@types/puppeteer": "^2.0.0"
+  }
+}

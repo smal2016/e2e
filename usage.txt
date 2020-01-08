@@ -1,0 +1,21 @@
+┌──────────────────────────────────────────────────┬───────────┬──────────────────────────────────────────────────┐
+│ Pattern / Text                                   │ Duration  │ Location                                         │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I open (.*) page by direct url$/               │ 5000.00ms │ features\step_definitions\contactPageSteps.ts:6  │
+│   I open contact page by direct url              │ 5000ms    │ features\scenarious\contactPage.feature:3        │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I fill Email field with value: (.*)$/          │ 992.00ms  │ features\step_definitions\contactPageSteps.ts:32 │
+│   I fill Email field with value: test@email.test │ 992ms     │ features\scenarious\contactPage.feature:7        │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I submit form and expect success$/             │ 864.00ms  │ features\step_definitions\contactPageSteps.ts:38 │
+│   I submit form and expect success               │ 864ms     │ features\scenarious\contactPage.feature:8        │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I submit form$/                                │ 112.00ms  │ features\step_definitions\contactPageSteps.ts:22 │
+│   I submit form                                  │ 112ms     │ features\scenarious\contactPage.feature:5        │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I see Email field is highlighted in red$/      │ 68.00ms   │ features\step_definitions\contactPageSteps.ts:26 │
+│   I see Email field is highlighted in red        │ 68ms      │ features\scenarious\contactPage.feature:6        │
+├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I see Contact form$/                           │ 11.00ms   │ features\step_definitions\contactPageSteps.ts:15 │
+│   I see Contact form                             │ 11ms      │ features\scenarious\contactPage.feature:4        │
+└──────────────────────────────────────────────────┴───────────┴──────────────────────────────────────────────────┘
