@@ -1,25 +1,25 @@
 const urls = {
-    baseUrl: 'https://www.talenya.com/'
-}
+  baseUrl: "https://www.talenya.com/",
+};
 
 const keys = {
-    CONTROL: 'Control',
-    END: 'End',
-    BACKSPACE: 'Backspace'
-}
+  BACKSPACE: "Backspace",
+  CONTROL: "Control",
+  END: "End",
+};
 
 const options = {
-    puppeteer:{
-        headless: false,
-        args: ['--disable-notifications', '--start-maximized'],
-    },
-    timeouts:{
-        normal:10000
-    },
-    delays: {
-        type: 50,
-        press: 10
-    }
-}
+  delays: {
+    press: 10,
+    type: 50,
+  },
+  puppeteer: {
+    args: ["--disable-notifications", "--start-maximized"],
+    headless: false,
+  },
+  timeouts: {
+    normal: 30000,
+  },
+};
 
 export { urls, options, keys }

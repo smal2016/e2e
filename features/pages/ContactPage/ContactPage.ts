@@ -1,40 +1,35 @@
-import {Page} from 'puppeteer'
-import {BasePage} from '../BasePage'
+import { Page, Browser } from 'puppeteer'
+import { BasePage } from '../BasePage'
 import { ContactForm } from './ContactForm'
 
 class ContactPage extends BasePage {
-    public page: Page
     public pageTitle: string
     public contactForm: string
-
     public formComponent: ContactForm | null
 
-    constructor(page = null) {
-        super(page)
-        this.page = page
-        this.pageTitle = '.formHeadline'
-        this.contactForm = '.hbspt-form>form'
-        this.formComponent = null
+    constructor (public page: Page = null) {
+      super(page)
+      this.pageTitle = '.formHeadline'
+      this.contactForm = '.hbspt-form>form'
+      this.formComponent = null
     }
 
-    get url(){
-        return 'contact-us'
+    get url (): string {
+      return 'contact-us'
     }
 
-    isPageOpened(){
-        return this.isSelectorPresent(this.page, this.pageTitle)
+    public isPageOpened (): Promise<boolean> {
+      return this.isSelectorPresent(this.page, this.pageTitle)
     }
 
-    open(browser) {
-        return super.open(browser, this.url)
+    public open (browser: Browser): Promise<void> {
+      return super.open(browser, this.url)
     }
 
-    isContactFormPresent(){
-        this.formComponent = new ContactForm(this.page, this.contactForm)
-        return this.formComponent.isFormPresent()
+    public isContactFormPresent (): Promise<boolean> {
+      this.formComponent = new ContactForm(this.page, this.contactForm)
+      return this.formComponent.isFormPresent()
     }
-
 }
 
-
-export {ContactPage}
+export { ContactPage }

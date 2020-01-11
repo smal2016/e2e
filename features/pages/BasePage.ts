@@ -1,19 +1,23 @@
-import { urls, options } from '../support/data'
-import {Page, Browser, Response} from 'puppeteer'
-import { Base } from './Base'
+import { Browser, Page } from "puppeteer";
+import { options, urls } from "../support/data";
+import { Base } from "./Base";
+import { errorMessages as errors } from "../support/errorMessages"
+const { timeouts } = options
 
 class BasePage extends Base {
-    public page: Page
-    constructor(page: Page | null){
-        super()
-        this.page = page
-    }
-    async open(browser: Browser, pageUrl: string): Promise<Response | null>{
-        this.page = await browser.newPage()
-        const url = `${urls.baseUrl}/${pageUrl}`
-        return this.page.goto(url, {timeout: options.timeouts.normal})
+  constructor (public page: Page | null) {
+    super();
+  }
 
+  public async open(browser: Browser, pageUrl: string, timeout: number = timeouts.normal): Promise<void> {
+    this.page = await browser.newPage();
+    const url = `${urls.baseUrl}/${pageUrl}`;
+    try {
+      await this.page.goto(url, { timeout });
+    } catch(err){
+      throw new Error(errors.waitingForPageLoad(url, timeout))
     }
+  }
 }
 
-export { BasePage }
+export { BasePage };

@@ -1,15 +1,14 @@
 // Dependencies
 import { setWorldConstructor, setDefaultTimeout } from 'cucumber'
-import {options } from './support/data'
-import puppeteer  from 'puppeteer'
+import puppeteer from 'puppeteer'
 
-const World = function ({ attach, parameters }) {
-    setDefaultTimeout(options.timeouts.normal);
-    this.attach = attach
-    this.driver = puppeteer
-    this.test = true
+const defaultTimeout = 30000
+
+const World = function ({ attach, parameters }): void {
+  setDefaultTimeout(defaultTimeout)
+  this.attach = attach
+  this.driver = puppeteer
+  this.test = true
 }
-
-
 
 setWorldConstructor(World)

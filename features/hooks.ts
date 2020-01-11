@@ -1,17 +1,19 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Before, After } from 'cucumber'
 import { options } from './support/data'
+import { errorMessages as errors } from "./support/errorMessages"
 
-Before(async function () {
-    try {
-        this.browser = await this.driver.launch(options.puppeteer)
-    } catch (e) {
-        this.attach(`There was a problem with opening the browser: \n ${e}`)
-        return 'skipped'
-    }
-});
+Before(async function (): Promise<string|void> {
+  try {
+    this.browser = await this.driver.launch(options.puppeteer)
+  } catch (err) {
+    this.attach(errors.openingBrowser(err))
+    return 'skipped'
+  }
+})
 
-After(async function (testCase) {
-    if (this.hasOwnProperty('browser')) {
-        await this.browser.close()
-    }
+After(async function (): Promise<void>{
+  if (this.browser) {
+    await this.browser.close()
+  }
 })

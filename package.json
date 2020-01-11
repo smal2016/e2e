@@ -4,7 +4,8 @@
   "description": "automation",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "lint": "eslint features/**/**.**"
   },
   "author": "smal",
   "license": "ISC",
@@ -12,12 +13,21 @@
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
     "puppeteer": "^2.0.0",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.4"
+    "ts-node": "^8.5.4"
   },
   "devDependencies": {
-    "@types/node": "^13.1.4",
     "@types/cucumber": "^6.0.0",
-    "@types/puppeteer": "^2.0.0"
+    "@types/node": "^13.1.4",
+    "@types/puppeteer": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   }
 }
