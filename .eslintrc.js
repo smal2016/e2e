@@ -20,6 +20,8 @@ module.exports = {
         "sourceType": "module",
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
+        //https://github.com/typescript-eslint/typescript-eslint/issues/864
+        createDefaultProgram: true
     },
     "plugins": [
         "@typescript-eslint"
