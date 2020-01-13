@@ -1,4 +1,4 @@
-# Automated test with typeScript + Cucumber + Puppeteer
+# Automated test with TypeScript + Cucumber + Puppeteer
 
 ## Prerequisites
 1. Git - To clone repo

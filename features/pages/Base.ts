@@ -8,7 +8,7 @@ const RESPONSE = 'response'
 
 class Base {
   public async clearDataAndType(page: Page, element: ElementHandle, value: string): Promise<void> {
-    const lengthEl = (await this.getTextElement(element)).length;
+    const lengthEl = (await this.getElementText(element)).length;
     await element.focus();
     await page.keyboard.up(keys.CONTROL);
     await page.keyboard.press(keys.END, { delay: delays.press });
@@ -18,7 +18,7 @@ class Base {
     await element.type(value, { delay: delays.type });
   }
 
-  public getTextElement(element: ElementHandle): Promise<string> {
+  public getElementText(element: ElementHandle): Promise<string> {
     const context = element.executionContext();
     return context.evaluate((myEl: HTMLInputElement) => myEl.innerText || myEl.value, element);
   }
@@ -36,7 +36,10 @@ class Base {
     await page.click(selector);
   }
 
-  public async isSelectorPresent(page: Page, selector: string, timeout: number = timeouts.normal): Promise<boolean> {
+  public async isSelectorPresent(
+    page: Page, selector: string,
+    timeout: number = timeouts.normal
+  ): Promise<boolean> {
     try {
       await page.waitForSelector(selector, { timeout });
       return true;
@@ -96,6 +99,10 @@ class Base {
     } catch (err) {
       throw new Error(errors.waitingForResponse(urlToListen, timeout));
     }
+  }
+
+  async selectValue(page: Page, select: string, selector: string): Promise<string[]>{
+    return page.select(select, selector)
   }
 }
 

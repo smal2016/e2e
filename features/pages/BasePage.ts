@@ -2,6 +2,7 @@ import { Browser, Page } from "puppeteer";
 import { options, urls } from "../support/data";
 import { Base } from "./Base";
 import { errorMessages as errors } from "../support/errorMessages"
+
 const { timeouts } = options
 
 class BasePage extends Base {
@@ -9,7 +10,11 @@ class BasePage extends Base {
     super();
   }
 
-  public async open(browser: Browser, pageUrl: string, timeout: number = timeouts.normal): Promise<void> {
+  public async open(
+    browser: Browser,
+    pageUrl: string,
+    timeout: number = timeouts.normal
+  ): Promise<void> {
     this.page = await browser.newPage();
     const url = `${urls.baseUrl}/${pageUrl}`;
     try {

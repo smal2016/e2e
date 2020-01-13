@@ -1,21 +1,24 @@
-┌──────────────────────────────────────────────────┬───────────┬──────────────────────────────────────────────────┐
-│ Pattern / Text                                   │ Duration  │ Location                                         │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I open (.*) page by direct url$/               │ 3781.00ms │ features\step_definitions\contactPageSteps.ts:5  │
-│   I open contact page by direct url              │ 3781ms    │ features\scenarious\contactPage.feature:3        │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I fill Email field with value: (.*)$/          │ 994.00ms  │ features\step_definitions\contactPageSteps.ts:32 │
-│   I fill Email field with value: test@email.test │ 994ms     │ features\scenarious\contactPage.feature:7        │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I submit form and expect success$/             │ 584.00ms  │ features\step_definitions\contactPageSteps.ts:38 │
-│   I submit form and expect success               │ 584ms     │ features\scenarious\contactPage.feature:8        │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I submit form$/                                │ 193.00ms  │ features\step_definitions\contactPageSteps.ts:22 │
-│   I submit form                                  │ 193ms     │ features\scenarious\contactPage.feature:5        │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I see Email field is highlighted in red$/      │ 129.00ms  │ features\step_definitions\contactPageSteps.ts:26 │
-│   I see Email field is highlighted in red        │ 129ms     │ features\scenarious\contactPage.feature:6        │
-├──────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
-│ /^I see Contact form$/                           │ 8.00ms    │ features\step_definitions\contactPageSteps.ts:15 │
-│   I see Contact form                             │ 8ms       │ features\scenarious\contactPage.feature:4        │
-└──────────────────────────────────────────────────┴───────────┴──────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┬───────────┬──────────────────────────────────────────────────┐
+│ Pattern / Text                                        │ Duration  │ Location                                         │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I open (.*) page by direct url$/                    │ 3742.00ms │ features\step_definitions\contactPageSteps.ts:5  │
+│   I open contact page by direct url                   │ 3742ms    │ features\scenarious\contactPage.feature:3        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I fill Email field with value: (.*)$/               │ 1244.00ms │ features\step_definitions\contactPageSteps.ts:31 │
+│   I fill Email field with value: smolkov983@gmail.com │ 1244ms    │ features\scenarious\contactPage.feature:7        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I submit form and expect success$/                  │ 587.00ms  │ features\step_definitions\contactPageSteps.ts:42 │
+│   I submit form and expect success                    │ 587ms     │ features\scenarious\contactPage.feature:9        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I submit form$/                                     │ 261.00ms  │ features\step_definitions\contactPageSteps.ts:21 │
+│   I submit form                                       │ 261ms     │ features\scenarious\contactPage.feature:5        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I see Email field is highlighted in red$/           │ 88.00ms   │ features\step_definitions\contactPageSteps.ts:25 │
+│   I see Email field is highlighted in red             │ 88ms      │ features\scenarious\contactPage.feature:6        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I select about us value: (Outbound Sales)$/         │ 68.00ms   │ features\step_definitions\contactPageSteps.ts:36 │
+│   I select about us value: Outbound Sales             │ 68ms      │ features\scenarious\contactPage.feature:8        │
+├───────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────┤
+│ /^I see Contact form$/                                │ 13.00ms   │ features\step_definitions\contactPageSteps.ts:14 │
+│   I see Contact form                                  │ 13ms      │ features\scenarious\contactPage.feature:4        │
+└───────────────────────────────────────────────────────┴───────────┴──────────────────────────────────────────────────┘

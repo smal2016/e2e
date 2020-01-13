@@ -3,14 +3,12 @@ import { BasePage } from '../BasePage'
 import { ContactForm } from './ContactForm'
 
 class ContactPage extends BasePage {
-    public pageTitle: string
-    public contactForm: string
+    public pageTitle = '.formHeadline'
+    public contactForm = '.hbspt-form>form'
     public formComponent: ContactForm | null
 
     constructor (public page: Page = null) {
       super(page)
-      this.pageTitle = '.formHeadline'
-      this.contactForm = '.hbspt-form>form'
       this.formComponent = null
     }
 

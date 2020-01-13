@@ -1,30 +1,23 @@
 import { Page } from 'puppeteer'
 import { Base } from '../Base'
 
+const ERROR_CLASS = 'error'
+
 class ContactForm extends Base {
-    public firstName: string
-    public lastName: string
-    public email: string
-    public phone: string
-    public company: string
-    public jobTitle: string
-    public aboutUs: string
-    public message: string
-    public submitBtn: string
-    public getField: (string) => string
+    private requestedUrl = 'forms.hsforms.com/submissions'
+    public getField = (className: string): string => `${this.form} [class*=${className}] input`
+    public firstName = this.getField('firstname')
+    public lastName = this.getField('lastname')
+    public email = this.getField('email')
+    public phone = this.getField('phone')
+    public company = this.getField('company')
+    public jobTitle = this.getField('jobtitle')
+    public aboutUs = 'select[id*="how_did_you_hear_about_us"]'
+    public submitBtn = '.actions>input[type="submit"]'
+    public message = this.getField('message')
 
     constructor (public page: Page, public form: string) {
       super()
-      this.getField = (className: string): string => `${this.form} [class*=${className}] input`
-      this.firstName = this.getField('firstname')
-      this.lastName = this.getField('lastname')
-      this.email = this.getField('email')
-      this.phone = this.getField('phone')
-      this.company = this.getField('company')
-      this.jobTitle = this.getField('jobtitle')
-      this.aboutUs = this.getField('how_did_you_hear_about_us_')
-      this.message = this.getField('message')
-      this.submitBtn = '.actions>input[type="submit"]'
     }
 
     isFormPresent (): Promise<boolean> {
@@ -32,7 +25,7 @@ class ContactForm extends Base {
     }
 
     isFieldError (selector: string): Promise<boolean> {
-      return this.isElementHasClass(this.page, selector, 'error')
+      return this.isElementHasClass(this.page, selector, ERROR_CLASS)
     }
 
     isEmailError (): Promise<boolean> {
@@ -42,7 +35,12 @@ class ContactForm extends Base {
     async fillEmail (value: string): Promise<string> {
       const element = await this.page.$(this.email)
       await this.fillField(this.page, this.email, value)
-      return this.getTextElement(element)
+      return this.getElementText(element)
+    }
+
+    public async selectAboutUs(value: string): Promise<string>{
+      const selectedValues = await this.selectValue(this.page, this.aboutUs, value)
+      return selectedValues.toString()
     }
 
     submitForm (): Promise<void> {
@@ -50,7 +48,7 @@ class ContactForm extends Base {
     }
 
     async validateSubmitForm (): Promise<number> {
-      return this.getStatus(this.page, this.submitForm.bind(this), 'forms.hsforms.com/submissions')
+      return this.getStatus(this.page, this.submitForm.bind(this), this.requestedUrl)
     }
 }
 

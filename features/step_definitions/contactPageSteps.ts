@@ -33,6 +33,11 @@ Then(/^I fill Email field with value: (.*)$/, async function(value: string) {
     await this.currentPage.formComponent.fillEmail(value),
   ).to.equal(value);
 });
+Then(/^I select about us value: (Outbound Sales)$/, async function(value: string) {
+  expect(
+    await this.currentPage.formComponent.selectAboutUs(value)
+  ).to.equal(value);
+});
 
 Then(/^I submit form and expect success$/, async function() {
   const status = await this.currentPage.formComponent.validateSubmitForm();
