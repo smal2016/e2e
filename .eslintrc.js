@@ -20,7 +20,7 @@ module.exports = {
         "sourceType": "module",
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
-        //https://github.com/typescript-eslint/typescript-eslint/issues/864
+        // https://github.com/typescript-eslint/typescript-eslint/issues/864
         createDefaultProgram: true
     },
     "plugins": [
@@ -34,6 +34,14 @@ module.exports = {
         "@typescript-eslint/type-annotation-spacing": ["error"],
         //"@typescript-eslint/no-explicit-any":["error"],
        // "@typescript-eslint/typedef":["error"],
-        "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }] //fine
-    }
+        "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }]
+    },
+    "overrides": [
+        {
+            "files": ["cucumber.js"],
+            "rules": {
+                "no-var-requires": "off"
+            }
+        }
+    ]
 };

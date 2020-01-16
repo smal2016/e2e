@@ -12,5 +12,6 @@ const common = [
 ].join(' ')
 
 module.exports = {
-  default: common
+  default: common,
+  outputFolder
 }
