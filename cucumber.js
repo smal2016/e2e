@@ -1,11 +1,14 @@
+const outputFolder = 'output/'
+
 const common = [
   '--require-module ts-node/register',
   '--require features/**/*.ts',
   `--format ${
     process.env.CI || !process.stdout.isTTY ? 'progress' : 'progress-bar'
   }`,
-  '--format rerun:@rerun.txt',
-  '--format usage:usage.txt'
+  `--format rerun:${outputFolder}@rerun.txt`,
+  `--format usage:${outputFolder}usage.txt`,
+  `--format json:${outputFolder}report.json`
 ].join(' ')
 
 module.exports = {
