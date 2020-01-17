@@ -1,5 +1,5 @@
 import { Page, Browser } from 'puppeteer'
-import { BasePage } from '../BasePage'
+import { BasePage } from "../base/BasePage"
 import { ContactForm } from './ContactForm'
 
 class ContactPage extends BasePage {

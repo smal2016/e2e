@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const reporter = require('cucumber-html-reporter');
 const { outputFolder } = require("./cucumber");
 

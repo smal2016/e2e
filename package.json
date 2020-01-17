@@ -13,6 +13,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
+    "lodash.camelcase": "^4.3.0",
     "puppeteer": "^2.0.0",
     "ts-node": "^8.5.4"
   },
@@ -29,7 +30,6 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   }
 }

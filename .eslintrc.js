@@ -36,12 +36,4 @@ module.exports = {
        // "@typescript-eslint/typedef":["error"],
         "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }]
     },
-    "overrides": [
-        {
-            "files": ["cucumber.js"],
-            "rules": {
-                "no-var-requires": "off"
-            }
-        }
-    ]
 };

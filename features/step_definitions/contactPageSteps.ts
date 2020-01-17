@@ -1,15 +1,5 @@
 import { expect } from "chai";
-import { Then, When } from "cucumber";
-import { ContactPage } from "../pages/ContactPage/ContactPage";
-
-When(/^I open (.*) page by direct url$/, async function(pageName: string) {
-  this.currentPage = new ContactPage();
-  await this.currentPage.open(this.browser);
-  expect(
-    await this.currentPage.isPageOpened(),
-    `${pageName} page is not opened, using direct url`,
-  ).to.be.true;
-});
+import { Then } from "cucumber";
 
 Then(/^I see Contact form$/, async function() {
   expect(
@@ -28,20 +18,23 @@ Then(/^I see Email field is highlighted in red$/, async function() {
   ).to.be.true;
 });
 
-Then(/^I fill Email field with value: (.*)$/, async function(value: string) {
-  expect(
-    await this.currentPage.formComponent.fillEmail(value),
-  ).to.equal(value);
-});
+Then(/^I fill (First name|Last name|Email|Phone|Company|Job title) field with value: (.*)$/,
+  async function(field: string, value: string) {
+    const expectedValue = await this.currentPage.formComponent.fillFormField(field, value)
+    expect(
+      expectedValue
+    ).to.equal(value);
+  });
+
 Then(/^I select about us value: (Outbound Sales)$/, async function(value: string) {
   expect(
     await this.currentPage.formComponent.selectAboutUs(value)
   ).to.equal(value);
 });
 
-Then(/^I submit form and expect success$/, async function() {
+Then(/^I submit form and expect status (.*)$/, async function(expectedStatus) {
   const status = await this.currentPage.formComponent.validateSubmitForm();
   expect(
     status,
-  ).to.equal(200);
+  ).to.equal(Number(expectedStatus));
 });

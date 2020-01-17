@@ -1,5 +1,6 @@
 import { Page } from 'puppeteer'
-import { Base } from '../Base'
+import { Base } from '../base/Base'
+import  camelcase  from 'lodash.camelcase'
 
 const ERROR_CLASS = 'error'
 
@@ -32,10 +33,9 @@ class ContactForm extends Base {
       return this.isFieldError(this.email)
     }
 
-    async fillEmail (value: string): Promise<string> {
-      const element = await this.page.$(this.email)
-      await this.fillField(this.page, this.email, value)
-      return this.getElementText(element)
+    fillFormField(fieldName: string, value: string): Promise<string>{
+      const field = camelcase(fieldName)
+      return this.fillField(this.page, this[field], value)
     }
 
     public async selectAboutUs(value: string): Promise<string>{

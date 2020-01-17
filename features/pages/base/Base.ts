@@ -1,6 +1,7 @@
 import { ElementHandle, JSHandle, Page, Response } from "puppeteer";
-import { keys, options } from "../support/data";
-import { errorMessages as errors } from "../support/errorMessages"
+import { keys, options } from "../../support/data";
+import { errorMessages as errors } from "../../support/errorMessages"
+import { PageObject, PageClass } from './types'
 
 const { delays, timeouts } = options;
 
@@ -25,7 +26,7 @@ class Base {
 
   async waitForSelector(page: Page, selector: string, timeout: number = timeouts.normal): Promise<void>{
     try {
-      await page.waitForSelector(selector, { timeout })
+      await page.waitForSelector(selector, { timeout, visible: true })
     } catch(err){
       throw new Error(errors.waitingForSelector(selector, timeout))
     }
@@ -34,6 +35,20 @@ class Base {
   public async clickOn(selector: string, page: Page, timeout: number = timeouts.normal): Promise<void> {
     await this.waitForSelector(page, selector, timeout);
     await page.click(selector);
+  }
+
+  public async clickAndNavigate(
+    page: Page,
+    selector: string,
+    NextPage: PageClass,
+    timeout: number = timeouts.normal
+  ): Promise<PageObject>{
+    await Promise.all([
+      page.waitForNavigation(),
+      this.clickOn(selector, page, timeout)
+    ])
+    return new NextPage(page)
+
   }
 
   public async isSelectorPresent(
@@ -59,9 +74,10 @@ class Base {
     );
   }
 
-  public async fillField(page: Page, field: string, value: string): Promise<void> {
+  public async fillField(page: Page, field: string, value: string): Promise<string> {
     const element = await page.$(field);
-    return this.clearDataAndType(page, element, value);
+    await this.clearDataAndType(page, element, value);
+    return this.getElementText(element)
   }
 
   public async isElementHasClass(page: Page, selector: string, expectedClass: string): Promise<boolean> {

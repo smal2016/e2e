@@ -1,5 +1,5 @@
 const urls = {
-  baseUrl: "https://www.talenya.com/",
+  baseUrl: "https://www.talenya.com",
 };
 
 const keys = {
