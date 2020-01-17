@@ -22,4 +22,4 @@ const options = {
   },
 };
 
-export { urls, options, keys }
+export { urls, options, keys };

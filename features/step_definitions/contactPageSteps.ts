@@ -20,7 +20,7 @@ Then(/^I see Email field is highlighted in red$/, async function() {
 
 Then(/^I fill (First name|Last name|Email|Phone|Company|Job title) field with value: (.*)$/,
   async function(field: string, value: string) {
-    const expectedValue = await this.currentPage.formComponent.fillFormField(field, value)
+    const expectedValue = await this.currentPage.formComponent.fillFormField(field, value);
     expect(
       expectedValue
     ).to.equal(value);

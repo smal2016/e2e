@@ -1,11 +1,11 @@
 import { ElementHandle, JSHandle, Page, Response } from "puppeteer";
 import { keys, options } from "../../support/data";
-import { errorMessages as errors } from "../../support/errorMessages"
-import { PageObject, PageClass } from './types'
+import { errorMessages as errors } from "../../support/errorMessages";
+import { PageObject, PageClass } from './types';
 
 const { delays, timeouts } = options;
 
-const RESPONSE = 'response'
+const RESPONSE = 'response';
 
 class Base {
   public async clearDataAndType(page: Page, element: ElementHandle, value: string): Promise<void> {
@@ -26,9 +26,9 @@ class Base {
 
   async waitForSelector(page: Page, selector: string, timeout: number = timeouts.normal): Promise<void>{
     try {
-      await page.waitForSelector(selector, { timeout, visible: true })
+      await page.waitForSelector(selector, { timeout, visible: true });
     } catch(err){
-      throw new Error(errors.waitingForSelector(selector, timeout))
+      throw new Error(errors.waitingForSelector(selector, timeout));
     }
   }
 
@@ -46,8 +46,8 @@ class Base {
     await Promise.all([
       page.waitForNavigation(),
       this.clickOn(selector, page, timeout)
-    ])
-    return new NextPage(page)
+    ]);
+    return new NextPage(page);
 
   }
 
@@ -77,7 +77,7 @@ class Base {
   public async fillField(page: Page, field: string, value: string): Promise<string> {
     const element = await page.$(field);
     await this.clearDataAndType(page, element, value);
-    return this.getElementText(element)
+    return this.getElementText(element);
   }
 
   public async isElementHasClass(page: Page, selector: string, expectedClass: string): Promise<boolean> {
@@ -108,7 +108,7 @@ class Base {
             page.removeListener(RESPONSE, checkResponse);
             return resolve(status);
           }
-        })
+        });
         await callback();
       });
       return status;
@@ -118,7 +118,7 @@ class Base {
   }
 
   async selectValue(page: Page, select: string, selector: string): Promise<string[]>{
-    return page.select(select, selector)
+    return page.select(select, selector);
   }
 }
 

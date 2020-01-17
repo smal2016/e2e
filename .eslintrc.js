@@ -34,6 +34,7 @@ module.exports = {
         "@typescript-eslint/type-annotation-spacing": ["error"],
         //"@typescript-eslint/no-explicit-any":["error"],
        // "@typescript-eslint/typedef":["error"],
-        "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }]
+        "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }],
+        "semi": ["error", "always"]
     },
 };

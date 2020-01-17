@@ -8,4 +8,4 @@ const errorMessages = {
   openingBrowser: (err: Error): string => `There was a problem with opening the browser: \n ${err}`
 };
 
-export { errorMessages }
+export { errorMessages };

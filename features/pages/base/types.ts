@@ -1,4 +1,4 @@
-import { Page } from "puppeteer"
+import { Page } from "puppeteer";
 
 type PageObject = {
     url: string;
@@ -10,4 +10,4 @@ type PageClass = {
     new(page?: Page): PageObject;
 }
 
-export { PageObject, PageClass }
+export { PageObject, PageClass };

@@ -1,8 +1,8 @@
-import { Page } from 'puppeteer'
-import { Base } from '../base/Base'
-import  camelcase  from 'lodash.camelcase'
+import { Page } from 'puppeteer';
+import { Base } from '../base/Base';
+import  camelcase  from 'lodash.camelcase';
 
-const ERROR_CLASS = 'error'
+const ERROR_CLASS = 'error';
 
 class ContactForm extends Base {
     private requestedUrl = 'forms.hsforms.com/submissions'
@@ -18,38 +18,38 @@ class ContactForm extends Base {
     public message = this.getField('message')
 
     constructor (public page: Page, public form: string) {
-      super()
+      super();
     }
 
     isFormPresent (): Promise<boolean> {
-      return this.isSelectorPresent(this.page, this.form)
+      return this.isSelectorPresent(this.page, this.form);
     }
 
     isFieldError (selector: string): Promise<boolean> {
-      return this.isElementHasClass(this.page, selector, ERROR_CLASS)
+      return this.isElementHasClass(this.page, selector, ERROR_CLASS);
     }
 
     isEmailError (): Promise<boolean> {
-      return this.isFieldError(this.email)
+      return this.isFieldError(this.email);
     }
 
     fillFormField(fieldName: string, value: string): Promise<string>{
-      const field = camelcase(fieldName)
-      return this.fillField(this.page, this[field], value)
+      const field = camelcase(fieldName);
+      return this.fillField(this.page, this[field], value);
     }
 
     public async selectAboutUs(value: string): Promise<string>{
-      const selectedValues = await this.selectValue(this.page, this.aboutUs, value)
-      return selectedValues.toString()
+      const selectedValues = await this.selectValue(this.page, this.aboutUs, value);
+      return selectedValues.toString();
     }
 
     submitForm (): Promise<void> {
-      return this.clickOn(this.submitBtn, this.page)
+      return this.clickOn(this.submitBtn, this.page);
     }
 
     async validateSubmitForm (): Promise<number> {
-      return this.getStatus(this.page, this.submitForm.bind(this), this.requestedUrl)
+      return this.getStatus(this.page, this.submitForm.bind(this), this.requestedUrl);
     }
 }
 
-export { ContactForm }
+export { ContactForm };
