@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer";
 const { timeouts } = options;
 
 class BasePage extends Base {
-    public footer: null | any
+    public footer: null | Footer
 
     constructor(public page: Page | null) {
       super();

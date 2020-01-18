@@ -1,8 +1,8 @@
-import { Base } from "../base/Base";
+import { Base } from "../BasePage/Base";
 import { pages } from "../pages";
 import { Page } from "puppeteer";
 import  camelcase  from 'lodash.camelcase';
-import { PageObject } from "../base/types";
+import { PageObject } from "../types";
 
 class Footer extends Base {
     public contactUs = { selector:".about-contact a", PageToGo: pages.ContactPage }

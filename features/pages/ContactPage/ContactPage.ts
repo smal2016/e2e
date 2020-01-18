@@ -1,8 +1,9 @@
 import { Page, Browser } from 'puppeteer';
-import { BasePage } from "../base/BasePage";
+import { BasePage } from "../BasePage/BasePage";
 import { ContactForm } from './ContactForm';
+import { PageObject } from "../types";
 
-class ContactPage extends BasePage {
+class ContactPage extends BasePage implements PageObject {
     public pageTitle = '.formHeadline'
     public contactForm = '.hbspt-form>form'
     public formComponent: ContactForm | null
@@ -16,12 +17,12 @@ class ContactPage extends BasePage {
       return 'contact-us';
     }
 
-    public isPageOpened (): Promise<boolean> {
-      return this.isSelectorPresent(this.page, this.pageTitle);
-    }
-
     public open (browser: Browser): Promise<void> {
       return super.open(browser, this.url);
+    }
+
+    public isPageOpened (): Promise<boolean> {
+      return this.isSelectorPresent(this.page, this.pageTitle);
     }
 
     public isContactFormPresent (): Promise<boolean> {

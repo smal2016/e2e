@@ -1,7 +1,8 @@
 import { Browser, Page } from 'puppeteer';
-import { BasePage } from "../base/BasePage";
+import { BasePage } from "../BasePage/BasePage";
+import { PageObject } from "../types";
 
-class HomePage extends BasePage {
+class HomePage extends BasePage implements PageObject {
     public pageTitle = '[class*="headline"]'
 
     constructor (public page: Page = null) {

@@ -1,5 +1,5 @@
 import { Page } from 'puppeteer';
-import { Base } from '../base/Base';
+import { Base } from '../BasePage/Base';
 import  camelcase  from 'lodash.camelcase';
 
 const ERROR_CLASS = 'error';

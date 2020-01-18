@@ -1,7 +1,7 @@
 import { ElementHandle, JSHandle, Page, Response } from "puppeteer";
 import { keys, options } from "../../support/data";
 import { errorMessages as errors } from "../../support/errorMessages";
-import { PageObject, PageClass } from './types';
+import { PageObject, PageClass } from '../types';
 
 const { delays, timeouts } = options;
 

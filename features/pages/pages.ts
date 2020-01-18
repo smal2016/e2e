@@ -1,8 +1,10 @@
+import { PageClass } from "./types";
+
 const pages = {
-  get HomePage(){
+  get HomePage(): PageClass {
     return require('./HomePage/HomePage').HomePage;
   },
-  get ContactPage(){
+  get ContactPage(): PageClass {
     return require('./ContactPage/ContactPage').ContactPage;
   }
 };

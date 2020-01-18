@@ -32,8 +32,7 @@ module.exports = {
         "indent": ["error", 2],
         "@typescript-eslint/array-type": ["error"],
         "@typescript-eslint/type-annotation-spacing": ["error"],
-        //"@typescript-eslint/no-explicit-any":["error"],
-       // "@typescript-eslint/typedef":["error"],
+        "@typescript-eslint/no-explicit-any":["error"],
         "@typescript-eslint/no-untyped-public-signature": ["error", { "ignoredMethods": ["ignoredMethodName"] }],
         "semi": ["error", "always"]
     },

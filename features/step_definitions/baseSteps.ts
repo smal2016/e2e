@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { When } from "cucumber";
 import { pages } from '../pages/pages';
-import { PageClass } from "../pages/base/types";
+import { PageClass } from "../pages/types";
 
 const getPageByName = (pageName: string): PageClass => {
   const expectedPage = `${pageName}Page`;
@@ -10,7 +10,7 @@ const getPageByName = (pageName: string): PageClass => {
 
 When(/^I open (.*) page by direct url$/,
   async function(pageName: string) {
-    const PageToOpen = getPageByName(pageName);
+    const PageToOpen: PageClass = getPageByName(pageName);
     this.currentPage = new PageToOpen();
     await this.currentPage.open(this.browser);
     expect(
