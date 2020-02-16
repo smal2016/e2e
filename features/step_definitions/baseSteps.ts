@@ -19,13 +19,3 @@ When(/^I open (.*) page by direct url$/,
     ).to.be.true;
   }
 );
-
-When(/^I click on footer "(Contact us|Follow us)" button and go to (.*) page$/,
-  async function(link: string, pageName: string) {
-    this.currentPage = await this.currentPage.footer.clickOnFooterLink(link);
-    expect(
-      await this.currentPage.isPageOpened(),
-      `${pageName} page is not opened, using direct url`,
-    ).to.be.true;
-  }
-);

@@ -1,12 +1,9 @@
 import { PageClass } from "./types";
 
 const pages = {
-  get HomePage(): PageClass {
+  get GooglePage(): PageClass {
     return require('./HomePage/HomePage').HomePage;
   },
-  get ContactPage(): PageClass {
-    return require('./ContactPage/ContactPage').ContactPage;
-  }
 };
 
 export { pages };

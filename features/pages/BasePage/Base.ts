@@ -56,7 +56,7 @@ class Base {
     timeout: number = timeouts.normal
   ): Promise<boolean> {
     try {
-      await page.waitForSelector(selector, { timeout });
+      await this.waitForSelector(page, selector);
       return true;
     } catch (err) {
       return false;

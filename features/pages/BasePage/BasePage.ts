@@ -19,6 +19,7 @@ class BasePage extends Base {
       timeout: number = timeouts.normal
     ): Promise<void> {
       this.page = await browser.newPage();
+
       const url = `${urls.baseUrl}/${pageUrl}`;
       try {
         await this.page.goto(url, { timeout });
